@@ -6,7 +6,9 @@ FROM node:alpine
 WORKDIR /usr/project
 
 # Install ssh and git
-RUN apk update && apk add git && apk add -qU openssh
+RUN apk update
+RUN apk add git
+RUN apk add -qU openssh
 
 # Get ssh public key for "github.com"
 
