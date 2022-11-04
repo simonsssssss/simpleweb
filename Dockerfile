@@ -1,23 +1,33 @@
 # Specify a base image
 FROM node:alpine
 
-WORKDIR /usr/app
+# Define the working directory of a Docker container
 
-# Install some depenendencie
-RUN apk update
-RUN apk add git
-RUN apk add -qU openssh
+WORKDIR /usr/project
 
-RUN mkdir -m 700 /root/.ssh; \
-  touch -m 600 /root/.ssh/known_hosts; \
-  ssh-keyscan github.com > /root/.ssh/known_hosts
+# Install ssh and git
+RUN apk update && apk add git && apk add -qU openssh
 
-RUN --mount=type=ssh,id=github git clone git@github.com:simonsssssss/simpleweb.git
+# Get ssh public key for "github.com"
 
-WORKDIR /usr/app/simpleweb
+RUN mkdir -m 700 /root/.ssh; touch -m 600 /root/.ssh/known_hosts; ssh-keyscan github.com > /root/.ssh/known_hosts
+
+# Clone the repository from GitHub
+
+RUN --mount=type=ssh git clone git@github.com:simonsssssss/simpleweb.git
+
+WORKDIR /usr/project/simpleweb
+
+# Install some dependencies
 
 RUN npm install
+
 COPY ./ ./
-EXPOSE 3000
+
+# Listening on specific port
+
+EXPOSE 1000
+
 # Default command
-CMD ["npm", "start"]  
+
+CMD ["npm", "start"]
