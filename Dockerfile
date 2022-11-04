@@ -2,7 +2,7 @@
 FROM node:alpine
 
 # Define the working directory of a Docker container
-WORKDIR /usr/app
+WORKDIR /usr/project
 
 # Install ssh and git
 RUN apk update
@@ -15,7 +15,7 @@ RUN mkdir -m 700 /root/.ssh; touch -m 600 /root/.ssh/known_hosts; ssh-keyscan gi
 # Clone the repository from GitHub
 RUN --mount=type=ssh,id=github git clone git@github.com:simonsssssss/simpleweb.git
 
-WORKDIR /usr/app/simplewebgfdgfd
+WORKDIR /usr/project/simpleweb
 
 # Listening on specific port
 EXPOSE 1000
