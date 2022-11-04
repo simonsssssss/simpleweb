@@ -15,7 +15,9 @@ RUN mkdir -m 700 /root/.ssh; \
 RUN --mount=type=ssh,id=github git clone git@github.com:simonsssssss/simpleweb.git
 
 WORKDIR /usr/app/myrepository/Simpleweb
+RUN npm install
 
+COPY ./ ./
 EXPOSE 3000
 # Default command
 CMD ["npm", "start"]  
