@@ -17,6 +17,11 @@ RUN --mount=type=ssh,id=github git clone git@github.com:simonsssssss/simpleweb.g
 
 WORKDIR /usr/project/simpleweb
 
+# Install some depenendencies
+COPY ./package.json ./
+RUN npm install
+COPY ./ ./
+
 # Listening on specific port
 EXPOSE 1000
 
