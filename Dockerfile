@@ -15,7 +15,7 @@ RUN mkdir -m 700 /root/.ssh; touch -m 600 /root/.ssh/known_hosts; ssh-keyscan gi
 # Clone the repository from GitHub
 RUN --mount=type=ssh,id=github git clone git@github.com:simonsssssss/simpleweb.git
 
-WORKDIR /usr/app/myrepository/Simpleweb
+WORKDIR /usr/app/simplewebgfdgfd
 
 # Listening on specific port
 EXPOSE 1000
