@@ -15,7 +15,7 @@ RUN mkdir -m 700 /root/.ssh; \
   ssh-keyscan github.com > /root/.ssh/known_hosts
 
 # Clone the repository from GitHub
-RUN --mount=type=ssh,id=github git clone git@github.com:simonsssssss/simpleweb.git
+RUN --mount=type=ssh git clone git@github.com:simonsssssss/simpleweb.git
 
 WORKDIR /usr/app/myrepository/Simpleweb
 
