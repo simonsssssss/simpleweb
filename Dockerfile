@@ -19,9 +19,6 @@ RUN --mount=type=ssh,id=github git clone git@github.com:simonsssssss/simpleweb.g
 
 WORKDIR /usr/app/myrepository/Simpleweb
 
-RUN npm install
-COPY ./ ./
-
 # Listening on specific port
 EXPOSE 3000
 
