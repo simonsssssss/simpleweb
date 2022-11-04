@@ -2,7 +2,7 @@
 FROM node:alpine
 
 
-# Install some depenendencies
+# Install some depenendencie
 RUN apk update
 RUN apk add git
 RUN apk add -qU openssh
